@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:14:09 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/03 14:52:55 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/03 15:16:37 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,13 @@ int	main(int argc, char *argv[])
 	b = NULL;
 	init_stack(&a, argc, argv);
 	print_stacks(&a, &b);
-	pb(&a, &b);
+	rra(&a);
 	print_stacks(&a, &b);
-	pb(&a, &b);
+	rra(&a);
 	print_stacks(&a, &b);
-	pa(&a, &b);
+	rra(&a);
 	print_stacks(&a, &b);
-	pa(&a, &b);
-	print_stacks(&a, &b);
-	pa(&a, &b);
+	rra(&a);
 	print_stacks(&a, &b);
 	return (0);
 }
