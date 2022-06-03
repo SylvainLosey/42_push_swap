@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:14:09 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/03 11:51:07 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/03 14:19:03 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,28 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stack	a, b;
+	t_stack	a;
+	t_stack	b;
 
 	a = NULL;
 	b = NULL;
 	init_stack(&a, argc, argv);
+	print_stack(&a);
+	sa(&a);
+	sb(&b);
 	print_stack(&a);
 	return (0);
 }
 
 bool	init_stack(t_stack *stack, int argc, char *argv[])
 {
-	int	i;
+	int	current_arg;
 
-	i = 1;
-	while (i < argc)
-		if (!push(stack, ft_atoi(argv[i++])))
+	if (argc == 1)
+		return (false);
+	current_arg = argc - 1;
+	while (current_arg > 0)
+		if (!push(stack, ft_atoi(argv[current_arg--])))
 			return (false);
 	return (true);
 }
