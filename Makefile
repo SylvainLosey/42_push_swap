@@ -6,7 +6,7 @@
 #    By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 17:14:20 by sylvain           #+#    #+#              #
-#    Updated: 2022/05/28 17:24:20 by sylvain          ###   ########.fr        #
+#    Updated: 2022/06/03 11:25:26 by sylvain          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ DEPS := $(OBJS:.o=.d)
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
-CPPFLAGS ?= $(INC_FLAGS) -MMD -MP -Wall -Wextra -Werror
+# TODO: Remove debug flag
+CPPFLAGS ?= $(INC_FLAGS) -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
@@ -36,9 +37,11 @@ $(NAME): $(OBJS)
 # 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 clean:
+	@make clean -C $(LIBFT)
 	$(RM) $(OBJS) $(DEPS)
 
 fclean: clean
+	@make fclean -C $(LIBFT)
 	$(RM) $(NAME)
 
 re: fclean all
