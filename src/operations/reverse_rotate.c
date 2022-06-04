@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 14:55:25 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/03 15:17:29 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/03 15:19:25 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	_reverse_rotate(t_stack *stack)
 		return (false);
 	first = *stack;
 	before_last = find_before_last_node(first);
-	last = find_last_node(first);
+	last = before_last->next;
 	*stack = last;
 	last->next = first;
 	before_last->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:14:09 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/03 15:16:37 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/04 14:48:08 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,12 @@ int	main(int argc, char *argv[])
 
 	a = NULL;
 	b = NULL;
-	init_stack(&a, argc, argv);
-	print_stacks(&a, &b);
-	rra(&a);
-	print_stacks(&a, &b);
-	rra(&a);
-	print_stacks(&a, &b);
-	rra(&a);
-	print_stacks(&a, &b);
-	rra(&a);
+	if (argc == 1)
+		return (0);
+	if (!init_stack(&a, argc, argv))
+		return (return_error());
+	// TODO: check for duplicates
 	print_stacks(&a, &b);
 	return (0);
 }
 
-bool	init_stack(t_stack *stack, int argc, char *argv[])
-{
-	int	current_arg;
-
-	if (argc == 1)
-		return (false);
-	current_arg = argc - 1;
-	while (current_arg > 0)
-		if (!push(stack, ft_atoi(argv[current_arg--])))
-			return (false);
-	return (true);
-}
