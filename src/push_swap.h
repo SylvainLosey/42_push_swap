@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:17:38 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/10 11:51:03 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/10 18:39:40 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,53 @@
 # include <stdbool.h>
 # include "../libft/src/libft.h"
 
+/*
+** -------------------------- Structs ---------------------------------
+*/
+typedef struct s_node
+{
+	int				value;
+	int				index;
+	struct s_node	*next;
+}	t_node;
+
+typedef t_node*	t_stack;
+
+/*
+** -------------------------- Linked lists ---------------------------------
+*/
+
+void	print_list(t_node *head);
+t_node	*create_new_node(int value);
+t_node	*insert_at_head(t_node **head, t_node *node_to_insert);
+void	insert_after_node(t_node *node_to_insert_after, t_node *node_to_insert);
+
+t_node	*find_node(t_node *head, int value);
+t_node	*find_last_node(t_node *head);
+t_node	*find_before_last_node(t_node *head);
+
+/*
+** -------------------------- Stacks ---------------------------------
+*/
+
+bool	push(t_stack *stack, int value);
+int		pop(t_stack *stack);
+void	print_stack(t_stack *stack);
+int		stack_length(t_stack *stack);
+
+/*
+** -------------------------- Initialization ---------------------------------
+*/
+
+bool	init_stack(t_stack *stack, int argc, char *argv[]);
+bool	init_stack_from_string(t_stack *stack, char *str);
+bool	add_array_of_str_to_stack(t_stack *stack, char *strs[], int len);
+bool	add_str_to_stack(t_stack *stack, char *str);
+bool	args_were_passed_as_string(char *str);
+bool	argument_is_valid(char *str);
+bool	duplicate_in_stack(t_stack *head);
+bool	index_stack(t_stack *stack);
+void	index_lowest_unindexed_node(t_stack *stack, int index);
 
 /*
 ** -------------------------- Operations ---------------------------------
@@ -38,16 +85,12 @@ bool	rrb(t_stack *b);
 bool	rrr(t_stack *a, t_stack *b);
 
 /*
-** -------------------------- Initialization ---------------------------------
+** -------------------------- Sorting ---------------------------------
 */
 
-bool	init_stack(t_stack *stack, int argc, char *argv[]);
-bool	init_stack_from_string(t_stack *stack, char *str);
-bool	add_array_of_str_to_stack(t_stack *stack, char *strs[], int len);
-bool	add_str_to_stack(t_stack *stack, char *str);
-bool	args_were_passed_as_string(char *str);
-bool	argument_is_valid(char *str);
-bool	no_duplicate_in_stack(t_stack *head);
+void	sort_stacks(t_stack *a, t_stack *b);
+void	sort_length_2(t_stack *a);
+bool	is_sorted(t_stack *stack);
 
 /*
 ** -------------------------- Utils ---------------------------------

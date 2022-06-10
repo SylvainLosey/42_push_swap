@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:16:20 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/10 11:50:05 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/10 18:40:15 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ bool	init_stack(t_stack *stack, int argc, char *argv[])
 	}
 	else
 		init_result = add_array_of_str_to_stack(stack, argv + 1, argc - 1);
-	return (init_result && no_duplicate_in_stack(stack));
+	if (init_result == false || duplicate_in_stack(stack))
+		return (false);
+	else
+		return (index_stack(stack));
 }
 
 bool	init_stack_from_string(t_stack *stack, char *str)

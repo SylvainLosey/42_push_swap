@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:37:19 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/10 11:52:29 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/10 18:39:51 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	args_were_passed_as_string(char *str)
 	return (true);
 }
 
-bool	no_duplicate_in_stack(t_stack *head)
+bool	duplicate_in_stack(t_stack *head)
 {
 	t_node	*iterator;
 	t_node	*checker;
@@ -58,10 +58,10 @@ bool	no_duplicate_in_stack(t_stack *head)
 		while (checker != NULL)
 		{
 			if (iterator->value == checker->value)
-				return (false);
+				return (true);
 			checker = checker->next;
 		}
 		iterator = iterator->next;
 	}
-	return (true);
+	return (false);
 }
