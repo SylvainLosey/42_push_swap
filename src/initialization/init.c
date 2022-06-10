@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:16:20 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/04 14:47:28 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/10 11:50:05 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 bool	init_stack(t_stack *stack, int argc, char *argv[])
 {
+	bool	init_result;
 
 	if (argc == 2)
 	{
 		if (args_were_passed_as_string(argv[1]))
-			return (init_stack_from_string(stack, argv[1]));
+			init_result = init_stack_from_string(stack, argv[1]);
 		else
-			return (add_str_to_stack(stack, argv[1]));
+			init_result = add_str_to_stack(stack, argv[1]);
 	}
 	else
-		return (add_array_of_str_to_stack(stack, argv + 1, argc - 1));
+		init_result = add_array_of_str_to_stack(stack, argv + 1, argc - 1);
+	return (init_result && no_duplicate_in_stack(stack));
 }
 
 bool	init_stack_from_string(t_stack *stack, char *str)

@@ -6,12 +6,11 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:37:19 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/04 14:47:17 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/10 11:52:29 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 bool	is_not_digit_or_minus(int c)
 {
@@ -44,5 +43,25 @@ bool	args_were_passed_as_string(char *str)
 	result = ft_strchr(str, ' ');
 	if (result == NULL)
 		return (false);
+	return (true);
+}
+
+bool	no_duplicate_in_stack(t_stack *head)
+{
+	t_node	*iterator;
+	t_node	*checker;
+
+	iterator = *head;
+	while (iterator->next != NULL)
+	{
+		checker = iterator->next;
+		while (checker != NULL)
+		{
+			if (iterator->value == checker->value)
+				return (false);
+			checker = checker->next;
+		}
+		iterator = iterator->next;
+	}
 	return (true);
 }

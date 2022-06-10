@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:17:38 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/04 14:19:01 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/10 11:51:03 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ bool	add_array_of_str_to_stack(t_stack *stack, char *strs[], int len);
 bool	add_str_to_stack(t_stack *stack, char *str);
 bool	args_were_passed_as_string(char *str);
 bool	argument_is_valid(char *str);
+bool	no_duplicate_in_stack(t_stack *head);
 
 /*
 ** -------------------------- Utils ---------------------------------
 */
 
 void	print_stacks(t_stack *a, t_stack *b);
-int     return_error(void);
+int		return_error(void);
 
 #endif
