@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:17:38 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/10 18:39:40 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/11 15:28:28 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ t_node	*find_before_last_node(t_node *head);
 */
 
 bool	push(t_stack *stack, int value);
-int		pop(t_stack *stack);
+bool	push_existing_node(t_stack *stack, t_node *node);
+t_node	*pop(t_stack *stack);
 void	print_stack(t_stack *stack);
 int		stack_length(t_stack *stack);
 
@@ -92,11 +93,14 @@ void	sort_stacks(t_stack *a, t_stack *b);
 void	sort_length_2(t_stack *a);
 bool	is_sorted(t_stack *stack);
 
+void	radix_sort(t_stack *a, t_stack *b, int length);
+
 /*
 ** -------------------------- Utils ---------------------------------
 */
 
 void	print_stacks(t_stack *a, t_stack *b);
 int		return_error(void);
+int		number_of_bits_in_decimal(int number);
 
 #endif

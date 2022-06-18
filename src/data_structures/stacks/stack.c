@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 10:13:03 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/10 18:40:47 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/11 15:26:44 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,22 @@ bool	push(t_stack *stack, int value)
 	return (true);
 }
 
+bool	push_existing_node(t_stack *stack, t_node *node)
+{
+	node->next = *stack;
+	*stack = node;
+	return (true);
+}
+
 // Beware: this function doesn't handle an empty stack correctly
-int	pop(t_stack *stack)
+t_node	*pop(t_stack *stack)
 {
 	t_node	*tmp;
-	int		value;
 
 	tmp = *stack;
 	*stack = (*stack)->next;
-	value = tmp->value;
-	free(tmp);
-	return (value);
+	tmp->next = NULL;
+	return (tmp);
 }
 
 void	print_stack(t_stack *stack)

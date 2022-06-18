@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 18:11:14 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/10 18:55:26 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/11 15:14:14 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // with an index starting at 0. This is extremely inefficient, but being 
 // efficient isn't the goal as the exercise is to find the smallest number of 
 // allowed operations to sort the given stack - indexing the stack will greatly 
-// help in finsing these operations
+// help in finding these operations.
 bool	index_stack(t_stack *stack)
 {
 	int	length;
