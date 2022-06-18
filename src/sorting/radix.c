@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 18:59:59 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/11 15:34:45 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/18 15:39:14 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@ void	radix_sort(t_stack *a, t_stack *b, int length)
 {
 	int	maximum_bits;
 	int	i;
+	int	j;
 
+	i = 0;
 	maximum_bits = number_of_bits_in_decimal(length - 1);
-	while (maximum_bits > 0)
+	while (i < maximum_bits)
 	{
-		i = 0;
-		while (i < length)
+		j = 0;
+		while (j++ < length)
 		{
 			if ((((*a)->index >> i) & 1) == 1)
 				ra(a);
 			else
 				pb(a, b);
-			i++;
 		}
 		while ((*b) != NULL)
 			pa(a, b);
-		maximum_bits--;
+		i++;
 	}
 }

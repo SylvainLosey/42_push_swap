@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:14:09 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/10 14:35:16 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/18 16:11:57 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (!init_stack(&a, argc, argv))
 		return (return_error());
-	print_stacks(&a, &b);
-	ft_printf("Stack is sorted: %d\n", is_sorted(&a));
 	if (!is_sorted(&a))
 		sort_stacks(&a, &b);
-	print_stacks(&a, &b);
-	ft_printf("Stack is sorted: %d\n", is_sorted(&a));
 	return (0);
 }

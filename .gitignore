@@ -3,3 +3,5 @@
 *.d
 
 .vscode/
+/push_swap_tester
+checker_Mac

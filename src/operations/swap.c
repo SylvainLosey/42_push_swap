@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 11:55:35 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/11 15:27:44 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/18 16:23:58 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ bool	_swap(t_stack *stack)
 {
 	t_node	*first_elem;
 	t_node	*second_elem;
+	bool	first_elem_result;
+	bool	second_elem_result;
 
 	if (stack_length(stack) <= 1)
 		return (false);
 	first_elem = pop(stack);
 	second_elem = pop(stack);
-	return (push_existing_node(stack, first_elem) && push_existing_node(stack, second_elem));
+	first_elem_result = push_existing_node(stack, first_elem);
+	second_elem_result = push_existing_node(stack, second_elem);
+	return (first_elem_result && second_elem_result);
 }
 
 bool	sa(t_stack *a)

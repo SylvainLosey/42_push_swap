@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:17:38 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/11 15:28:28 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/06/18 16:24:24 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ bool	rrr(t_stack *a, t_stack *b);
 */
 
 void	sort_stacks(t_stack *a, t_stack *b);
-void	sort_length_2(t_stack *a);
 bool	is_sorted(t_stack *stack);
 
 void	radix_sort(t_stack *a, t_stack *b, int length);
+void	simple_sort(t_stack *a, t_stack *b, int length);
 
 /*
 ** -------------------------- Utils ---------------------------------
@@ -102,5 +102,7 @@ void	radix_sort(t_stack *a, t_stack *b, int length);
 void	print_stacks(t_stack *a, t_stack *b);
 int		return_error(void);
 int		number_of_bits_in_decimal(int number);
+int		get_distance(t_stack *stack, int index);
+void	ra_sa_rra(t_stack *a);
 
 #endif
