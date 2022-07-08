@@ -6,7 +6,7 @@
 /*   By: sylvain <sylvain@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:17:38 by sylvain           #+#    #+#             */
-/*   Updated: 2022/06/18 16:24:24 by sylvain          ###   ########.fr       */
+/*   Updated: 2022/07/08 13:02:17 by sylvain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ bool	push_existing_node(t_stack *stack, t_node *node);
 t_node	*pop(t_stack *stack);
 void	print_stack(t_stack *stack);
 int		stack_length(t_stack *stack);
+void	free_stack(t_stack *stack);
 
 /*
 ** -------------------------- Initialization ---------------------------------
